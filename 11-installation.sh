@@ -7,9 +7,16 @@
  then
  echo "Please run this script with root privileges"
  exit 1
- 
+
  fi
 
- dnf install git -y
+ dnf list installed git 
 
-ls -ltr
+ if[ $? -ne 0 ]
+ then
+ echo "Git is not installed, going to install it.."
+ dnf install git -y
+ else "Git is already installed, nothing to do.."
+
+fi
+
