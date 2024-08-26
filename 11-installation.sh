@@ -1,10 +1,9 @@
 #!/bin/bash
 
- USERID=$(id -u)
+ USERID=$( id -u)
  #echo "User ID is: $USERID"
 
  if[ $USERID -ne 0 ]
- 
  then
 
     echo "Please run this script with root privileges"
@@ -14,7 +13,7 @@ fi
 
  dnf list installed git 
 
- if[ $? -ne 0 ]
+ if [ $? -ne 0 ]
  
  then
 
@@ -36,7 +35,9 @@ dnf list installed mysql
 
 if [ $? -ne 0 ]
 
-then  echo "MySQL is not installed..going to install"
+then  
+
+echo "MySQL is not installed..going to install"
 
 dnf install mysql -y
 
@@ -47,7 +48,7 @@ then
    echo "MYSQL installation is failure..please check"
 
    exit 1
-   
+
    else
      echo "MYSQL installation is success"
      fi
